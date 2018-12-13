@@ -20,7 +20,9 @@ class ItemsExport implements FromCollection
 
         foreach ($headings as $heading) {
             $columns = Item::select('column_3')->where('column_2', $heading)->pluck('column_3')->all();
+
             array_unshift($columns, $heading);
+
             array_push($rows, $columns);
         }
 

@@ -33,10 +33,10 @@ class ItemController extends Controller
         if ($this->file) {
             try {
                 Excel::import(new ItemsImport, $this->file);
-            } catch (\Exception $e) {
-                Helper::log(false, $e->getMessage());
+            } catch (\Exception $exception) {
+                Helper::log(false, $exception->getMessage());
 
-                $this->request->session()->flash('message', $e->getMessage());
+                $this->request->session()->flash('message', $exception->getMessage());
 
                 return redirect()->route('index');
             }

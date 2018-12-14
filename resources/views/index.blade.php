@@ -35,13 +35,16 @@
         說明：<br>
         　　1. 檔案可為 <a href="{{ asset('/files/example.xlsx') }}">.xlsx</a> 或 <a href="{{ asset('/files/example.csv') }}">.csv</a> 檔。<br>
         　　2. 檔案名稱須為英數字。<br>
-        　　3. 資料不宜大於 80,000 列。<br>
+        　　3. 資料不宜大於 60,000 列。<br>
         　　4. 資料第三行須為數字。<br>
         　　5. 可開啟多個視窗進行操作。
         <hr>
         <div id="message">
             @if(Session::has('message'))
                 {{ Session::get('message') }}
+            @endif
+            @if($errors->any())
+                {{ var_dump($errors) }}
             @endif
         </div>
     </div>

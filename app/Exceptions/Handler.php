@@ -47,7 +47,13 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException) {
-            abort(404);
+
+            abort(403);
+        }
+
+        if ($exception instanceof \Symfony\Component\Debug\Exception\FatalErrorException) {
+
+            abort(500);
         }
 
         return parent::render($request, $exception);

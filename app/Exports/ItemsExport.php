@@ -26,7 +26,7 @@ class ItemsExport implements FromCollection
             array_push($rows, $columns);
         }
 
-        Item::where('token', csrf_token())->delete();
+        Item::where('token', request()->token)->delete();
 
         return collect(array_map(null, ...$rows));
     }

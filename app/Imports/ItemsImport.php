@@ -15,7 +15,7 @@ class ItemsImport implements ToModel
     public function model(array $row)
     {
         return new Item([
-            'token' => csrf_token(),
+            'token' => request()->token,
             'column_1' => $row[0],
             'column_2' => $row[1],
             'column_3' => $row[2],

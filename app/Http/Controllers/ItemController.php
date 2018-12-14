@@ -25,8 +25,6 @@ class ItemController extends Controller
 
     public function index()
     {
-        Helper::log(true);
-        
         return view('index');
     }
 
@@ -51,15 +49,7 @@ class ItemController extends Controller
 
     protected function export()
     {
-        if ($this->file) {
-            try {
-                return Excel::download(new ItemsExport, pathinfo($this->file->getClientOriginalName(), PATHINFO_FILENAME).'.xlsx');
-            } catch (\Exception $e) {
-                Helper::log(false, $e->getMessage());
-            }
-        }
-
-        Helper::log(true);
+        return Excel::download(new ItemsExport, pathinfo($this->file->getClientOriginalName(), PATHINFO_FILENAME).'.xlsx');
     }
 
     public function truncate()

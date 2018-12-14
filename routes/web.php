@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'ItemController@index')->name('index');
-Route::post('/import', 'ItemController@import')->name('import');
-Route::get('/truncate', 'ItemController@truncate')->name('truncate');
+Route::post('/items/import', 'ItemController@import')->name('items.import');
+Route::get('/items/truncate', 'ItemController@truncate')->name('items.truncate');

@@ -8,10 +8,36 @@
     <title>Excel</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('import') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('items.import') }}" enctype="multipart/form-data">
         @csrf
         <input type="file" name="excel">
         <input type="submit">
     </form>
+    
+    <p id="message">
+        @if(Session::has('message'))
+            {{ Session::get('message') }}
+        @endif
+    </p>
+
+    <script>
+        function fadeOut(el){
+            message.style.opacity = 1;
+
+            (function fade() {
+                if ((message.style.opacity -= .1) < 0) {
+                    message.style.display = "none";
+                } else {
+                    requestAnimationFrame(fade);
+                }
+            })();
+        }
+        
+        let message = document.querySelector('#message');
+
+        setTimeout(function(){
+            fadeOut(message);
+        }, 3000);
+    </script>
 </body>
 </html>

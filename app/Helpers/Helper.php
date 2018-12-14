@@ -9,7 +9,7 @@ class Helper
 {
     public static function log($success, $message = '')
     {
-        Log::insert([
+        Log::create([
             'ip' => Request::getClientIp(),
             'function' => debug_backtrace()[1]['function'],
             'success' => $success,

@@ -35,7 +35,7 @@
         說明：<br>
         　　1. 檔案可為 <a href="{{ asset('/files/example.xlsx') }}">.xlsx</a> 或 <a href="{{ asset('/files/example.csv') }}">.csv</a> 檔。<br>
         　　2. 檔案名稱須為英數字。<br>
-        　　3. 資料宜小於 80,000 列。<br>
+        　　3. 資料不宜大於 80,000 列。<br>
         　　4. 資料第三行須為數字。<br>
         　　5. 可開啟多個視窗進行操作。
         <hr>
